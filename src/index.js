@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import ComponentApp from './comment/CommentApp'
 
 ReactDom.render(
-    <span>Hello React!</span>, 
+    <ComponentApp></ComponentApp>,
     document.getElementById('app')
 )
