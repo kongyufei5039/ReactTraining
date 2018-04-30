@@ -19,8 +19,12 @@ module.exports = {
             include: path.join(__dirname, 'src')
         }, {
             test: /\.css$/,
-            use: ['css-loader?cacheDirectory=true'],
-            include: path.join(__dirname, 'src')
+            use: [
+                'style-loader',
+                {
+                    loader: 'css-loader'
+                }
+            ]
         }]
     },
 
