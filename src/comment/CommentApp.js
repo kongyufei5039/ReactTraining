@@ -4,10 +4,17 @@ import ComponentList from './ComponentList'
 import '../index.css'
 
 class ComponentApp extends Component {
+
+    handleSubmitComment(comment) {
+        console.log(comment)
+    }
+
     render() {
         return (
             <div className='wrapper'>
-                <ComponentInput></ComponentInput>
+                <ComponentInput
+                    onSubmit={this.handleSubmitComment.bind(this)}    
+                />
                 <ComponentList></ComponentList>
             </div>
         )
