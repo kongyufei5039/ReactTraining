@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ComponentInput extends Component {
+class CommentInput extends Component {
 
     constructor() {
         super()
@@ -62,4 +62,4 @@ class ComponentInput extends Component {
     }
 }
 
-export default ComponentInput
+export default CommentInput
