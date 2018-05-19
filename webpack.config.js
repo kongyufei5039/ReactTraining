@@ -1,6 +1,8 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
+
     /*入口*/
     entry: [
         path.resolve(__dirname, 'src/index.js')

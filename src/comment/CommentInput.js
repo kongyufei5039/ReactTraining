@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
+import wrapWithLoadData from './wrapWithLoadData'
 
 class CommentInput extends Component {
 
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
-            username: '',
+            // username: '',
+            username: props.data,
             content: ''
         }
     }
 
-    componentWillMount() {
-       this._loadUsername() 
-    }
+    // componentWillMount() {
+    //    this._loadUsername() 
+    // }
 
     componentDidMount() {
         if (this.textarea) {
@@ -20,16 +22,16 @@ class CommentInput extends Component {
         }
     }
 
-    _loadUsername() {
-        const username = localStorage.getItem('username')
-        if (username) {
-            this.setState({username: username})
-        }
-    }
+    // _loadUsername() {
+    //     const username = localStorage.getItem('username')
+    //     if (username) {
+    //         this.setState({username: username})
+    //     }
+    // }
 
-    _saveUsername(username) {
-        localStorage.setItem('username', username)
-    }
+    // _saveUsername(username) {
+    //     localStorage.setItem('username', username)
+    // }
 
     handleUsernameChange(event) {
         this.setState({
@@ -52,7 +54,8 @@ class CommentInput extends Component {
     }
 
     handleUsernameBlur(event) {
-        this._saveUsername(event.target.value)
+        // this._saveUsername(event.target.value)
+        this.props.saveData(event.target.value)
     }
 
     render() {
@@ -88,5 +91,7 @@ class CommentInput extends Component {
         )
     }
 }
+
+CommentInput = wrapWithLoadData(CommentInput, 'username')
 
 export default CommentInput
